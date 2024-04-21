@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Comment } from '../comment'
 
 export function Post() {
   const [isButtonVisible, setButtonVisible] = useState(false)
@@ -87,6 +88,9 @@ export function Post() {
           Publicar
         </button>
       </form>
+      <div className="mt-8">
+        <Comment />
+      </div>
     </article>
   )
 }

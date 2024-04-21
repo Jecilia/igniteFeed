@@ -19,7 +19,9 @@ export default {
       gray900:'#121214',
       
       green300:'#00B373',
-      green500:'#00875f'
+      green500:'#00875f',
+
+      red500:'#f75a68'
      }
     },
     maxWidth:{

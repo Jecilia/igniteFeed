@@ -6,23 +6,11 @@ export function App() {
   return (
     <div className="">
       <Header />
-      <div className="max-w-app grid-cols-app mx-auto my-8 grid items-start gap-8 px-4">
+      <div className="mx-auto my-8 grid max-w-app grid-cols-app items-start gap-8 px-4">
         <Sidebar />
-        <main>
-          <Post
-            author="Jecilia Teixeira"
-            content=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          fugit nemo velit unde nisi fuga necessitatibus consequatur laborum,
-          quis tempora, sunt cupiditate, deserunt repudiandae qui saepe
-          voluptatem dignissimos nulla! Soluta."
-          />
-          <Post
-            author="Lumenia Teixeira"
-            content=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          fugit nemo velit unde nisi fuga necessitatibus consequatur laborum,
-          quis tempora, sunt cupiditate, deserunt repudiandae qui saepe
-          voluptatem dignissimos nulla! Soluta."
-          />
+        <main className="space-y-8">
+          <Post />
+          <Post />
         </main>
       </div>
     </div>

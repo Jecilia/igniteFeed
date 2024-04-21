@@ -17,7 +17,8 @@ export default {
       gray700: '#29292e',
       gray800:'#202024',
       gray900:'#121214',
-
+      
+      green300:'#00B373',
       green500:'#00875f'
      }
     },
@@ -30,4 +31,3 @@ export default {
   },
   plugins: [],
 }
-

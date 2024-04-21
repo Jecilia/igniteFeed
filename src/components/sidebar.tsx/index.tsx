@@ -1,3 +1,4 @@
+import { PencilLine } from 'phosphor-react'
 import cover from '../../assets/cover.svg'
 import { Profile } from './profile'
 export function Sidebar() {
@@ -11,8 +12,9 @@ export function Sidebar() {
       >
         <a
           href="#"
-          className="flex w-full justify-center rounded-lg border border-green500 px-6 py-3 font-bold text-green500"
+          className="flex w-full justify-center gap-2 rounded-lg border border-green500 px-6 py-3 font-bold text-green500 duration-1000 hover:bg-green500 hover:text-white focus:outline-none focus:outline-green500"
         >
+          <PencilLine size={20} />
           Editar seu perfil
         </a>
       </footer>

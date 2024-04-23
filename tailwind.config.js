@@ -29,6 +29,7 @@ export default {
     },
     gridTemplateColumns:{
       app: '16rem 1fr',
+      md: '1fr',
     },
   },
   plugins: [],

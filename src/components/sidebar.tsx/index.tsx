@@ -1,10 +1,14 @@
 import { PencilLine } from 'phosphor-react'
-import cover from '../../assets/cover.svg'
 import { Profile } from './profile'
+
 export function Sidebar() {
   return (
     <aside className=" overflow-hidden rounded-lg bg-gray800">
-      <img src={cover} alt="" />
+      <img
+        src="https://github.com/jecilia.png"
+        alt=""
+        className="h-[72px] w-full object-cover"
+      />
       <Profile />
       <footer
         aria-label="rodapé"

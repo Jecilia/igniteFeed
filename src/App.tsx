@@ -4,15 +4,15 @@ import { Sidebar } from './components/sidebar.tsx'
 
 export function App() {
   return (
-    <div className="">
+    <>
       <Header />
-      <div className="mx-auto my-8 grid max-w-app grid-cols-app items-start gap-8 px-4">
+      <div className="md:grid-cols-md mx-auto my-8 grid max-w-app items-start gap-8 px-4 lg:grid-cols-app">
         <Sidebar />
         <main className="space-y-8">
           <Post />
           <Post />
         </main>
       </div>
-    </div>
+    </>
   )
 }

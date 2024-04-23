@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Comment } from '../comment'
+import { Avatar } from '../avatar'
 
 export function Post() {
   const [isButtonVisible, setButtonVisible] = useState(false)
@@ -15,11 +16,7 @@ export function Post() {
     <article className="rounded-lg bg-gray800 p-10">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img
-            src="https://github.com/jecilia.png"
-            alt="deve ser uma pessoa"
-            className="box-content size-12 rounded-lg border-4 border-green500 outline-4 outline-gray-800"
-          />
+          <Avatar src="https://github.com/jecilia.png" variant="post" />
           <div className=" flex flex-col">
             <strong className="leading-6 text-gray100">Jecilia Teixeira</strong>
             <span className="text-sm leading-6 text-gray400">

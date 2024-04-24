@@ -1,8 +1,17 @@
 import { useState } from 'react'
 import { Comment } from '../comment'
 import { Avatar } from '../avatar'
+import { format, formatDistanceToNow } from 'date-fns'
+import { pt } from 'date-fns/locale/pt'
 
-export function Post() {
+interface PostProps {
+  author: string
+  content: string
+  publisheaAt: Date
+}
+const comments = [1, 2, 3]
+export function Post({ author, publisheaAt, content }: PostProps) {
+  const comments = useState()
   const [isButtonVisible, setButtonVisible] = useState(false)
 
   const handleTextareaFocus = () => {
@@ -12,63 +21,58 @@ export function Post() {
   const handleTextareaBlur = () => {
     setButtonVisible(false)
   }
+  const publishedDateFormateed = format(
+    publisheaAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    { locale: pt },
+  )
+
+  const publisheaAtDateRelativeToNow = formatDistanceToNow(publisheaAt, {
+    locale: pt,
+    addSuffix: true,
+  })
+  function handleCreateNewComment() {
+    event?.preventDefault()
+    comments.push(3)
+  }
+
   return (
     <article className="rounded-lg bg-gray800 p-10">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <Avatar src="https://github.com/jecilia.png" variant="post" />
+          <Avatar src={author.avatarUrl} variant="post" />
           <div className=" flex flex-col">
-            <strong className="leading-6 text-gray100">Jecilia Teixeira</strong>
+            <strong className="leading-6 text-gray100">{author.name}</strong>
             <span className="text-sm leading-6 text-gray400">
-              Front-End Developer
+              {author.role}
             </span>
           </div>
         </div>
         <time
-          title="21 de Abril as 08:13h"
-          dateTime="2024-04-21"
+          title={publishedDateFormateed}
+          dateTime={publisheaAt.toISOString()}
           className="text-sm text-gray400"
         >
-          Publicado há 1h
+          {publisheaAtDateRelativeToNow}
         </time>
       </header>
       <div className="mt-6 leading-6 text-gray300">
-        <p className="mt-4">Fala galeraa 👋 </p>
-        <p className="mt-4">
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀
-        </p>
-        <p className="mt-4 space-y-2">
-          👉
-          <a
-            href="#"
-            className="font-bold text-green500 hover:text-green300 focus:outline-none focus:outline-green500"
-          >
-            jane.design/doctorcare
-          </a>
-        </p>
-        <p className="mt-4 space-y-2">
-          <a
-            href="#"
-            className="font-bold text-green500 hover:text-green300 focus:outline-none focus:outline-green500"
-          >
-            #novoprojeto
-          </a>
-          <a
-            href="#"
-            className="font-bold text-green500 hover:text-green300 focus:outline-none focus:outline-green500"
-          >
-            #nlw
-          </a>
-          <a
-            href="#"
-            className="font-bold text-green500 hover:text-green300 focus:outline-none focus:outline-green500"
-          >
-            #rocketseat
-          </a>
-        </p>
+        {content.map((line) => {
+          if (line.type === 'paragraph') {
+            return <p>{line.content}</p>
+          } else if (line.type === 'link') {
+            return (
+              <p key={content}>
+                <a href="#">{line.content}</a>
+              </p>
+            )
+          }
+        })}
       </div>
-      <form action="" className="mt-6 w-full border-t border-gray600 pt-6">
+      <form
+        onSubmit={handleCreateNewComment}
+        className="mt-6 w-full border-t border-gray600 pt-6"
+      >
         <strong className="leading-6 text-gray100">Deixe seu feedback</strong>
         <textarea
           placeholder="Deixe um comentario "
@@ -86,7 +90,9 @@ export function Post() {
         </button>
       </form>
       <div className="mt-8">
-        <Comment />
+        {comments.map((comment) => {
+          return <Comment key={comment} />
+        })}
       </div>
     </article>
   )

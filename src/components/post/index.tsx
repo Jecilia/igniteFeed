@@ -9,9 +9,13 @@ interface PostProps {
   content: string
   publisheaAt: Date
 }
-const comments = [1, 2, 3]
+
 export function Post({ author, publisheaAt, content }: PostProps) {
-  const comments = useState()
+  const [comments, setComments] = useState([
+    'jecilia Teixeira',
+    'Alien seu chato',
+  ])
+  const [newCommentText, setNewCommentText] = useState('')
   const [isButtonVisible, setButtonVisible] = useState(false)
 
   const handleTextareaFocus = () => {
@@ -33,7 +37,11 @@ export function Post({ author, publisheaAt, content }: PostProps) {
   })
   function handleCreateNewComment() {
     event?.preventDefault()
-    comments.push(3)
+    setComments([newCommentText, ...comments])
+    setNewCommentText('')
+  }
+  function handleNewCommentChange() {
+    setNewCommentText(Event.target.value)
   }
 
   return (
@@ -59,10 +67,10 @@ export function Post({ author, publisheaAt, content }: PostProps) {
       <div className="mt-6 leading-6 text-gray300">
         {content.map((line) => {
           if (line.type === 'paragraph') {
-            return <p>{line.content}</p>
+            return <p key={line.content}>{line.content}</p>
           } else if (line.type === 'link') {
             return (
-              <p key={content}>
+              <p key={line.content}>
                 <a href="#">{line.content}</a>
               </p>
             )
@@ -77,8 +85,11 @@ export function Post({ author, publisheaAt, content }: PostProps) {
         <textarea
           placeholder="Deixe um comentario "
           className="mt-4 h-24 w-full resize-none rounded-lg border-0 bg-gray900 p-4 leading-6 text-gray100 focus:outline-none focus:outline-green500"
+          name="comment"
+          value={newCommentText}
           onFocus={handleTextareaFocus}
           onBlur={handleTextareaBlur}
+          onChange={handleNewCommentChange}
         />
         <button
           type="submit"
@@ -91,7 +102,7 @@ export function Post({ author, publisheaAt, content }: PostProps) {
       </form>
       <div className="mt-8">
         {comments.map((comment) => {
-          return <Comment key={comment} />
+          return <Comment key={comment} content={comment} />
         })}
       </div>
     </article>

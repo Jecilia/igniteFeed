@@ -30,10 +30,10 @@ export function App() {
           {posts.map((post) => {
             return (
               <Post
-                key={post}
-                author={'seed'}
-                content={'ssddd'}
-                publisheaAt={'2024-04-23 15:16:00'}
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publisheaAt={post.publisheaAt}
               />
             )
           })}

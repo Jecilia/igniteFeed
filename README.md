@@ -11,4 +11,4 @@ Teconolgia usadas:
 vite(#grandeVite)
 phosphor😿, igual ao lucidereact.
 css modulos😿,prefiri usar o Talwindcss acho o tailwind muito mais prático, e simples até mesmo quem esteja a começar..
-Conceitos sobre o useState e muito mais...
+Conceitos sobre o useState, a validação do form foi feita pelo HTML,conceitos sobre imutabilidade, conceitos sobre closures.

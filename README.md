@@ -19,7 +19,7 @@ O Ignite Feed é uma aplicação simples, projetada para ajudar você a avançar
 
 Aqui estão algumas screenshots do projeto:
 <div style="display: flex;">
-<img src="./src/assets/Screenshot (193).png" alt="Screenshot 1" width="400">
+<img src="./src/assets/Screenshot (193).png" alt="Screenshot 1" width="500">
 <img src="./src/assets/Screenshot (192).png" alt="Screenshot 2" width="200">
 </div>
 ## Demo

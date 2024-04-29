@@ -34,6 +34,7 @@ Para visualizar uma demo do projeto, visite [Figma](https://www.figma.com/commun
 - [Phosphor Icons](https://phosphoricons.com/): Ícones SVG personalizáveis para sua aplicação.
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): Linguagem de marcação para criar a estrutura da página web.
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript): Linguagem de programação fundamental para a web.
+- [TypeScript](https://www.typescriptlang.org/): Uma linguagem de programação que adiciona tipagem estática opcional ao JavaScript, melhorando a produtividade e a qualidade do código.
 
 ## Conceitos Abordados
 
